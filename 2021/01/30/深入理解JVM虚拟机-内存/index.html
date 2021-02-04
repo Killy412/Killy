@@ -21,20 +21,21 @@
     var CONFIG = {"hostname":"killy412.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="准备环境安装依赖开发部署工具 build_chain.sh脚本依赖于openssl, curl，使用下面的指令安装。 若为CentOS，将下面命令中的apt替换为yum执行即可。macOS执行brew install openssl curl即可（macOS自带的openssl指令选项不同，请执行安装标准openssl）。 1234# ubuntu环境安装依赖sudo apt install -y">
+  <meta name="description" content="运行时数据区域程序计数器(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.程序计数器是唯一不会出现 OOM 情况的内存区域">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速搭建单群组FISCO BCOS联盟链">
-<meta property="og:url" content="https://killy412.com/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/index.html">
+<meta property="og:title" content="深入理解JVM虚拟机-内存">
+<meta property="og:url" content="https://killy412.com/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="你看这只猫">
-<meta property="og:description" content="准备环境安装依赖开发部署工具 build_chain.sh脚本依赖于openssl, curl，使用下面的指令安装。 若为CentOS，将下面命令中的apt替换为yum执行即可。macOS执行brew install openssl curl即可（macOS自带的openssl指令选项不同，请执行安装标准openssl）。 1234# ubuntu环境安装依赖sudo apt install -y">
+<meta property="og:description" content="运行时数据区域程序计数器(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.程序计数器是唯一不会出现 OOM 情况的内存区域">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-11T05:15:56.000Z">
-<meta property="article:modified_time" content="2020-11-11T15:18:42.738Z">
+<meta property="article:published_time" content="2021-01-30T02:47:53.000Z">
+<meta property="article:modified_time" content="2021-02-02T15:19:16.540Z">
 <meta property="article:author" content="船夫">
-<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="内存详解">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://killy412.com/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/">
+<link rel="canonical" href="https://killy412.com/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>快速搭建单群组FISCO BCOS联盟链 | 你看这只猫</title>
+  <title>深入理解JVM虚拟机-内存 | 你看这只猫</title>
   
 
 
@@ -166,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://killy412.com/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/">
+    <link itemprop="mainEntityOfPage" href="https://killy412.com/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -179,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          快速搭建单群组FISCO BCOS联盟链
+          深入理解JVM虚拟机-内存
         </h1>
 
         <div class="post-meta">
@@ -189,7 +190,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-11 13:15:56" itemprop="dateCreated datePublished" datetime="2020-11-11T13:15:56+08:00">2020-11-11</time>
+              <time title="创建时间：2021-01-30 10:47:53" itemprop="dateCreated datePublished" datetime="2021-01-30T10:47:53+08:00">2021-01-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -197,12 +198,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">区块链</span></a>
+                  <a href="/categories/JVM/" itemprop="url" rel="index"><span itemprop="name">JVM</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/" class="post-meta-item leancloud_visitors" data-flag-title="快速搭建单群组FISCO BCOS联盟链" title="阅读次数">
+            <span id="/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/" class="post-meta-item leancloud_visitors" data-flag-title="深入理解JVM虚拟机-内存" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -217,8 +218,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/11/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%95%E7%BE%A4%E7%BB%84FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -233,35 +234,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><p>开发部署工具 build_chain.sh脚本依赖于openssl, curl，使用下面的指令安装。 若为CentOS，将下面命令中的apt替换为yum执行即可。macOS执行brew install openssl curl即可（macOS自带的openssl指令选项不同，请执行安装标准openssl）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ubuntu环境安装依赖</span></span><br><span class="line">sudo apt install -y openssl curl  </span><br><span class="line"><span class="comment"># centos环境安装依赖</span></span><br><span class="line">sudo yum install -y openssl openssl-devel </span><br></pre></td></tr></table></figure>
+        <h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.<br>程序计数器是唯一不会出现 <code>OOM</code> 情况的内存区域</p>
 <a id="more"></a>
-<h4 id="创建操作目录"><a href="#创建操作目录" class="headerlink" title="创建操作目录"></a>创建操作目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ &amp;&amp; mkdir -p fisco &amp;&amp; <span class="built_in">cd</span> fisco</span><br></pre></td></tr></table></figure>
-<h4 id="下载build-chain-sh脚本"><a href="#下载build-chain-sh脚本" class="headerlink" title="下载build_chain.sh脚本"></a>下载build_chain.sh脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -<span class="comment">#LO https://github.com/FISCO-BCOS/FISCO-BCOS/releases/download/v2.6.0/build_chain.sh &amp;&amp; chmod u+x build_chain.sh</span></span><br></pre></td></tr></table></figure>
-<h3 id="生成一条单群组4节点的FISCO链"><a href="#生成一条单群组4节点的FISCO链" class="headerlink" title="生成一条单群组4节点的FISCO链"></a>生成一条单群组4节点的FISCO链</h3><p>在fisco目录下执行下面的指令，生成一条单群组4节点的FISCO链.请确保机器的 30300-30303，20200-20203，8545-8548端口没有被占用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash build_chain.sh -l 127.0.0.1:4 -p 30300,20200,8545 [参数]</span><br></pre></td></tr></table></figure>
+<h3 id="Java-虚拟机栈"><a href="#Java-虚拟机栈" class="headerlink" title="Java 虚拟机栈"></a>Java 虚拟机栈</h3><p>线程私有.虚拟机栈描述的是 Java 方法执行的线程内存模型.每个方法被执行的时候,Java 虚拟机都会同步创建一个栈帧(Stack Frame),用于存储局部变量表/操作数栈/动态连接/方法出口等信息.每个方法在被调用到执行完毕的过程,就对应一个栈帧在虚拟机栈中入栈到出栈的过程.</p>
+<p>Java8 局部变量表中只有基本类型变量,引用类型只存储引用地址.<br>Java 虚拟机栈中可能出现两种错误</p>
 <ul>
-<li>参数<ul>
-<li><code>-i</code> 默认<code>127.0.0.1</code>,加上参数<code>0.0.0.0</code>,使外网可以访问</li>
-<li><code>-p</code> 指定节点的起始端口,每个节点占用三个端口,分别是p2p,channel,jsonrpc使用,分割端口,必须指定三个端口.同一个IP下的不同节点所使用端口从起始端口递增.</li>
-<li><code>-l</code> 用于指定要生成的链的IP列表以及每个IP下的节点数,以逗号分隔</li>
+<li><code>StackOverflowError</code>: 调用栈深度大于 Java 虚拟机栈的最大深度的时候会爆出</li>
+<li><code>OutOfMemoryError</code>: 内存溢出</li>
 </ul>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>本地方法栈和虚拟机栈作用类似,区别是虚拟机栈为虚拟机执行 Java 方法服务,本地方法栈为虚拟机使用的 navicat 方法服务.<br>在 HotSpot 中本地方法栈和虚拟机栈一样的.也会爆出<code>StackOverflowError</code>和<code>OutofMemoryError</code>错误</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆是 Java 运行时最大的一块内存区域.所有创建的对象实例以及数组对象都放在堆中.并且是所有线程共享的.<br>从垃圾回收的角度,堆还可以分为新生代和老年代.新生代包含 <code>edan</code> 区和两个<code>surivor</code>区.</p>
+<p>堆内存最容易出现 OOM 错误.</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区主要存储加载的类信息,静态变量,常量. 占用的是本地内存. 方法区也被称为永久代.<br>方法区和永久代的区别,永久代是 HotSpot 对方法区的实现.方法区是&lt;JVM 虚拟机规范&gt;一书中的逻辑定义.<br>在 jdk1.8 方法区被移除,替代的是元空间.</p>
+<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>运行时常量池是方法区的一部分. Class 文件中除了有属性代码定义等描述信息之外,还有常量池表,用于存放编译时生成的字面量和符号引用,这部分内存在类加载后存放在常量池中.<br>jdk1.8 中,运行时常量池在方法区中,也就是元空间.字符串常量池在堆中.</p>
+<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>直接内存不是运行时数据区域的一部分.也不是 jvm 虚拟机规范中定义的任何部分.但是这部分内存也被频繁使用.而且可能导致 OOM 错误.<br>Java1.4 中新加入的 NIO,引用了一种基于通道和缓存的方式.可以使用 native 库直接分配堆外内存,然后通过<code>DirectByteBuffer</code>对象来进行操作. 这样可以在一些场景中提升性能,避免了在 Java 堆和 native 堆来回复制数据.</p>
+<h2 id="虚拟机对象探秘"><a href="#虚拟机对象探秘" class="headerlink" title="虚拟机对象探秘"></a>虚拟机对象探秘</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><ol>
+<li><p>遇到 new 指令,首先检查指令的参数能否在常量池中定位到这个类的符号引用,并且检查类是否已经被加载.如果没有,则先执行类加载流程.</p>
 </li>
+<li><p>为对象分配内存,对象所需内存大小在类加载完成阶段已经确认.</p>
+<p><strong>分配内存有两种方式,具体使用哪种根据内存是否规整来决定.而内存是否规整根据使用的垃圾收集器是否带有压缩整理功能决定.</strong></p>
+</li>
+</ol>
+<ul>
+<li>指针碰撞: 主要用于内存规整的情况.有一个指针,指向已使用内存和未使用内存的分界地址. 分配的时候指针向右移动所需内存大小的位置就可以.</li>
+<li>空闲列表: 用于内存不规整的情况. 虚拟机会维护一个未使用的内存列表,分配的时候找到一个容量合适的内存块划分给对象.</li>
 </ul>
-<p>命令执行成功会输出All completed。如果执行出错，请检查nodes/build.log文件中的错误信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Checking fisco-bcos binary...</span><br><span class="line">Binary check passed.</span><br><span class="line">==============================================================</span><br><span class="line">Generating CA key...</span><br><span class="line">==============================================================</span><br><span class="line">Generating keys ...</span><br><span class="line">Processing IP:127.0.0.1 Total:4 Agency:agency Groups:1</span><br><span class="line">==============================================================</span><br><span class="line">Generating configurations...</span><br><span class="line">Processing IP:127.0.0.1 Total:4 Agency:agency Groups:1</span><br><span class="line">==============================================================</span><br><span class="line">[INFO] Execute the download_console.sh script <span class="keyword">in</span> directory named by IP to get FISCO-BCOS console.</span><br><span class="line">e.g.  bash /home/ubuntu/fisco/nodes/127.0.0.1/download_console.sh</span><br><span class="line">==============================================================</span><br><span class="line">[INFO] FISCO-BCOS Path   : bin/fisco-bcos</span><br><span class="line">[INFO] Start Port        : 30300 20200 8545</span><br><span class="line">[INFO] Server IP         : 127.0.0.1:4</span><br><span class="line">[INFO] Output Dir        : /home/ubuntu/fisco/nodes</span><br><span class="line">[INFO] CA Key Path       : /home/ubuntu/fisco/nodes/cert/ca.key</span><br><span class="line">==============================================================</span><br><span class="line">[INFO] All completed. Files <span class="keyword">in</span> /home/ubuntu/fisco/nodes</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建对象分配内存时有线程安全的问题,当正在给对象 A 分配内存,指针还没来得及修改,对象 B 又同时使用了原来的指针来分配内存.虚拟机有两种方式保证线程安全.</p>
+<ul>
+<li>CAS+失败重试机制.保证分配内存的安全性</li>
+<li>TLAB:为每个线程分配一个本地线程分配缓冲(Thread Local Allocation Buffer),每个线程先在被分配的内存块中分配,使用完之后再使用上面 CAS 方式进行分配.</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><p>初始化零值. 内存分配完成后,需要将分配到的内存空间初始化为零值. 保证对象属性在没有设置的情况下可以使用零值.</p>
+</li>
+<li><p>设置对象头,设置一些必要的东西,例如对象所属类型,gc 年龄,哈希码等信息.</p>
+</li>
+<li><p>执行<init> 方法. 上面步骤完成之后,从 jvm 角度看一个对象已经创建好,从 java 程序看对象创建刚开始,执行<init>方法之后一个对象才真正创建好.</p>
+</li>
+</ol>
+<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p>对象在 HotSpot 虚拟机中,主要分为三个部分</p>
+<ul>
+<li>对象头: 包含两部分<ol>
+<li>Mark World: 包含 GC 年龄,hash 值,偏向线程 id,锁状态标识等.</li>
+<li>类型指针: 确认对象所属的类型.</li>
+</ol>
+</li>
+<li>实例数据: 存储对象真正使用的数据,属性等信息.</li>
+<li>对其补充:因为 HotSpot 要求对象的起始地址必须是 8 字节的整倍数,所以当对象实例数据没有对齐时,需要使用对齐填充来对齐.</li>
+</ul>
+<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>两种方式</p>
+<ul>
+<li>直接访问: 栈中 reference 变量指向堆中实例数据,实例数据保存了对象的类型指针.如果只访问对象本身数据,少了一次定位开销.</li>
+<li>句柄池访问: 堆中有一个句柄池,reference 变量指向句柄池的句柄地址,句柄保存了对象的类型指针和实例指针.</li>
+</ul>
 
-<h3 id="启动FISCO-BCOS链"><a href="#启动FISCO-BCOS链" class="headerlink" title="启动FISCO BCOS链"></a>启动FISCO BCOS链</h3><p>启动所有节点</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash nodes/127.0.0.1/start_all.sh</span><br></pre></td></tr></table></figure>
-<p>停止所有节点</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash nodes/127.0.0.1/stop_all.sh</span><br></pre></td></tr></table></figure>
-<p>启动成功会输出类似下面内容的响应。否则请使用netstat -an | grep tcp检查机器的30300<del>30303，20200</del>20203，8545~8548端口是否被占用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try to start node0</span><br><span class="line">try to start node1</span><br><span class="line">try to start node2</span><br><span class="line">try to start node3</span><br><span class="line"> node1 start successfully</span><br><span class="line"> node2 start successfully</span><br><span class="line"> node0 start successfully</span><br><span class="line"> node3 start successfully</span><br></pre></td></tr></table></figure>
-<p>检查进程是否启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep -v grep | grep fisco-bcos</span><br></pre></td></tr></table></figure>
-<p>正常情况会有类似下面的输出； 如果进程数不为4，则进程没有启动（一般是端口被占用导致的）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fisco       5453     1  1 17:11 pts/0    00:00:02 /home/ubuntu/fisco/nodes/127.0.0.1/node0/../fisco-bcos -c config.ini</span><br><span class="line">fisco       5459     1  1 17:11 pts/0    00:00:02 /home/ubuntu/fisco/nodes/127.0.0.1/node1/../fisco-bcos -c config.ini</span><br><span class="line">fisco       5464     1  1 17:11 pts/0    00:00:02 /home/ubuntu/fisco/nodes/127.0.0.1/node2/../fisco-bcos -c config.ini</span><br><span class="line">fisco       5476     1  1 17:11 pts/0    00:00:02 /home/ubuntu/fisco/nodes/127.0.0.1/node3/../fisco-bcos -c config.ini</span><br></pre></td></tr></table></figure>
-<h3 id="文章参考FISCO-BCOS官方文档"><a href="#文章参考FISCO-BCOS官方文档" class="headerlink" title="文章参考FISCO BCOS官方文档"></a>文章参考<a target="_blank" rel="noopener" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/installation.html">FISCO BCOS官方文档</a></h3>
     </div>
 
     
@@ -271,7 +299,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"><i class="fa fa-tag"></i> 区块链</a>
+              <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
+              <a href="/tags/%E5%86%85%E5%AD%98%E8%AF%A6%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 内存详解</a>
           </div>
 
         
@@ -280,12 +309,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/09/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="Docker常用命令">
-      <i class="fa fa-chevron-left"></i> Docker常用命令
+    <a href="/2021/01/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="Linux常用命令">
+      <i class="fa fa-chevron-left"></i> Linux常用命令
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/11/11/SpringBoot-%E6%89%8B%E5%8A%A8%E6%8E%A7%E5%88%B6%E4%BA%8B%E5%8A%A1/" rel="next" title="SpringBoot 手动控制事务">
-      SpringBoot 手动控制事务 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/04/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="next" title="Git常用命令">
+      Git常用命令 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -346,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%93%8D%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">创建操作目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDbuild-chain-sh%E8%84%9A%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">下载build_chain.sh脚本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E4%B8%80%E6%9D%A1%E5%8D%95%E7%BE%A4%E7%BB%844%E8%8A%82%E7%82%B9%E7%9A%84FISCO%E9%93%BE"><span class="nav-number">2.</span> <span class="nav-text">生成一条单群组4节点的FISCO链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8FISCO-BCOS%E9%93%BE"><span class="nav-number">3.</span> <span class="nav-text">启动FISCO BCOS链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%8F%82%E8%80%83FISCO-BCOS%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">4.</span> <span class="nav-text">文章参考FISCO BCOS官方文档</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">1.2.</span> <span class="nav-text">Java 虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">1.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86"><span class="nav-number">1.4.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.5.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.6.</span> <span class="nav-text">运行时常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.7.</span> <span class="nav-text">直接内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AF%B9%E8%B1%A1%E6%8E%A2%E7%A7%98"><span class="nav-number">2.</span> <span class="nav-text">虚拟机对象探秘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">2.1.</span> <span class="nav-text">对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">2.2.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">2.3.</span> <span class="nav-text">对象的访问定位</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
