@@ -29,7 +29,7 @@
 <meta property="og:description" content="运行时数据区域程序计数器(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.程序计数器是唯一不会出现 OOM 情况的内存区域">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-30T02:47:53.000Z">
-<meta property="article:modified_time" content="2021-02-02T15:19:16.540Z">
+<meta property="article:modified_time" content="2021-02-07T13:23:20.225Z">
 <meta property="article:author" content="船夫">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="内存详解">
@@ -236,6 +236,7 @@
       
         <h2 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h2><h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.<br>程序计数器是唯一不会出现 <code>OOM</code> 情况的内存区域</p>
 <a id="more"></a>
+
 <h3 id="Java-虚拟机栈"><a href="#Java-虚拟机栈" class="headerlink" title="Java 虚拟机栈"></a>Java 虚拟机栈</h3><p>线程私有.虚拟机栈描述的是 Java 方法执行的线程内存模型.每个方法被执行的时候,Java 虚拟机都会同步创建一个栈帧(Stack Frame),用于存储局部变量表/操作数栈/动态连接/方法出口等信息.每个方法在被调用到执行完毕的过程,就对应一个栈帧在虚拟机栈中入栈到出栈的过程.</p>
 <p>Java8 局部变量表中只有基本类型变量,引用类型只存储引用地址.<br>Java 虚拟机栈中可能出现两种错误</p>
 <ul>
@@ -271,7 +272,7 @@
 </li>
 <li><p>设置对象头,设置一些必要的东西,例如对象所属类型,gc 年龄,哈希码等信息.</p>
 </li>
-<li><p>执行<init> 方法. 上面步骤完成之后,从 jvm 角度看一个对象已经创建好,从 java 程序看对象创建刚开始,执行<init>方法之后一个对象才真正创建好.</p>
+<li><p>执行<code>&lt;init&gt;</code> 方法. 上面步骤完成之后,从 jvm 角度看一个对象已经创建好,从 java 程序看对象创建刚开始,执行<init>方法之后一个对象才真正创建好.</p>
 </li>
 </ol>
 <h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p>对象在 HotSpot 虚拟机中,主要分为三个部分</p>
