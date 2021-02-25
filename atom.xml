@@ -105,7 +105,7 @@
     <link href="https://killy412.com/2021/01/19/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-GC/"/>
     <id>https://killy412.com/2021/01/19/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-GC/</id>
     <published>2021-01-19T13:07:53.000Z</published>
-    <updated>2021-01-19T14:52:40.531Z</updated>
+    <updated>2021-02-25T14:37:23.777Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;blockquote&gt;
@@ -261,7 +261,7 @@
     <link href="https://killy412.com/2020/11/09/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://killy412.com/2020/11/09/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2020-11-09T14:03:47.000Z</published>
-    <updated>2021-02-06T13:22:45.924Z</updated>
+    <updated>2021-02-25T12:40:09.510Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;安装-Docker-虚拟机&quot;&gt;&lt;a href=&quot;#安装-Docker-虚拟机&quot; class=&quot;headerlink&quot; title=&quot;安装 Docker 虚拟机&quot;&gt;&lt;/a&gt;安装 Docker 虚拟机&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y yum-utils &lt;span class=&quot;comment&quot;&gt;# 安装依赖软件包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo &lt;span class=&quot;comment&quot;&gt;#添加软件仓库 阿里云docker安装包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum makecache fast  &lt;span class=&quot;comment&quot;&gt;# 启用缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum list docker-ce --showduplicates | sort -r  &lt;span class=&quot;comment&quot;&gt;# 查看版本 选择一个&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yum install docker-ce-&amp;lt;version&amp;gt; -y        &lt;span class=&quot;comment&quot;&gt;# 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;systemctl &lt;span class=&quot;built_in&quot;&gt;enable&lt;/span&gt; docker &lt;span class=&quot;comment&quot;&gt;# 开机自启&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;systemctl start docker  &lt;span class=&quot;comment&quot;&gt;# 启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;systemctl stop docker  &lt;span class=&quot;comment&quot;&gt;# 停止&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
