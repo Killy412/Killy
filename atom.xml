@@ -6,7 +6,7 @@
   <link href="https://killy412.com/atom.xml" rel="self"/>
   
   <link href="https://killy412.com/"/>
-  <updated>2021-02-04T15:03:30.123Z</updated>
+  <updated>2021-05-02T09:58:08.723Z</updated>
   <id>https://killy412.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>并发之AQS</title>
+    <link href="https://killy412.com/2021/05/02/%E5%B9%B6%E5%8F%91%E4%B9%8BAQS/"/>
+    <id>https://killy412.com/2021/05/02/%E5%B9%B6%E5%8F%91%E4%B9%8BAQS/</id>
+    <published>2021-05-02T09:53:47.000Z</published>
+    <updated>2021-05-02T09:58:08.723Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;并发之同步器-AbstractQueueSynchronize&quot;&gt;&lt;a href=&quot;#并发之同步器-AbstractQueueSynchronize&quot; class=&quot;headerlink&quot; title=&quot;并发之同步器(AbstractQueueSynchronize)&quot;&gt;&lt;/a&gt;并发之同步器(AbstractQueueSynchronize)&lt;/h2&gt;&lt;p&gt;同步器是juc并发包中并发工具的基础,很多经常使用的同步工具类都是基于aqs实现的.例如ReentrantLock,CountDownLatch,Semphore等.&lt;/p&gt;
+&lt;p&gt;基本的实现方式是通过一个state变量控制资源是否已经被占用,以及一个CLH队列实现.&lt;/p&gt;
+&lt;h3 id=&quot;为什么要使用AQS-和synchronized相比有什么优势&quot;&gt;&lt;a href=&quot;#为什么要使用AQS-和synchronized相比有什么优势&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用AQS,和synchronized相比有什么优势&quot;&gt;&lt;/a&gt;为什么要使用AQS,和synchronized相比有什么优势&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="并发" scheme="https://killy412.com/categories/%E5%B9%B6%E5%8F%91/"/>
+    
+    
+    <category term="并发" scheme="https://killy412.com/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+    <category term="AQS" scheme="https://killy412.com/tags/AQS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于生产环境OOM问题的排查</title>
+    <link href="https://killy412.com/2021/03/28/%E5%85%B3%E4%BA%8E%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83OOM%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%92%E6%9F%A5/"/>
+    <id>https://killy412.com/2021/03/28/%E5%85%B3%E4%BA%8E%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83OOM%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%92%E6%9F%A5/</id>
+    <published>2021-03-28T11:09:30.000Z</published>
+    <updated>2021-05-02T06:58:46.068Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;概要&quot;&gt;&lt;a href=&quot;#概要&quot; class=&quot;headerlink&quot; title=&quot;概要&quot;&gt;&lt;/a&gt;概要&lt;/h2&gt;&lt;p&gt;在三月中开始的时候,线上突然经常报出 oom,刚开始怀疑那几天提交的代码有问题,因为之前没有报出来过. 代码排查了几遍,没发现有什么问题. 然后把 oom 时的内存信息 dump 下来使用 jvisualvm 进行分析,发现是 jdbc 查询时,有一个 DataResultSet 对象非常大,占用 1.9g 内存. 感觉是找到了问题的原因,但是找不到问题发生的地方,dump 下来了好几个内存快照,每次 oom 时的栈信息都不一样,但是都有这个 1.9g 的对象. 因为数据库有 600 多张表,整个系统业务很多,根本找不到是哪里查询时的占用的内存.&lt;/p&gt;
+&lt;p&gt;然后对其中一台机器尝试过进行 jvm 参数调优,调大了堆,垃圾回收器换成了 CMS+ParNew,日常这种垃圾回收器表现比未调优之前要好,但是依然报出过 oom,报 oom 那段时间一直 fgc,gc 的时间能达到三千多秒…&lt;/p&gt;
+&lt;p&gt;现在主要就是找到创建这个DataResultSet对象时的代码处.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="OOM" scheme="https://killy412.com/categories/OOM/"/>
+    
+    
+    <category term="OOM" scheme="https://killy412.com/tags/OOM/"/>
+    
+    <category term="解决过程" scheme="https://killy412.com/tags/%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Git常用命令</title>
