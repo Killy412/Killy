@@ -6,7 +6,7 @@
   <link href="https://killy412.com/atom.xml" rel="self"/>
   
   <link href="https://killy412.com/"/>
-  <updated>2021-05-02T09:58:08.723Z</updated>
+  <updated>2021-05-17T13:56:35.511Z</updated>
   <id>https://killy412.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解JVM虚拟机-类加载</title>
+    <link href="https://killy412.com/2021/05/17/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E7%B1%BB%E5%8A%A0%E8%BD%BD/"/>
+    <id>https://killy412.com/2021/05/17/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E7%B1%BB%E5%8A%A0%E8%BD%BD/</id>
+    <published>2021-05-17T12:44:31.000Z</published>
+    <updated>2021-05-17T13:56:35.511Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;类的生命周期&quot;&gt;&lt;a href=&quot;#类的生命周期&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JVM" scheme="https://killy412.com/categories/JVM/"/>
+    
+    
+    <category term="JVM" scheme="https://killy412.com/tags/JVM/"/>
+    
+    <category term="类加载机制" scheme="https://killy412.com/tags/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>并发之AQS</title>
@@ -86,7 +113,7 @@
     <link href="https://killy412.com/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/"/>
     <id>https://killy412.com/2021/01/30/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%86%85%E5%AD%98/</id>
     <published>2021-01-30T02:47:53.000Z</published>
-    <updated>2021-02-07T13:23:20.225Z</updated>
+    <updated>2021-05-17T12:47:25.062Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;运行时数据区域&quot;&gt;&lt;a href=&quot;#运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区域&quot;&gt;&lt;/a&gt;运行时数据区域&lt;/h2&gt;&lt;h3 id=&quot;程序计数器&quot;&gt;&lt;a href=&quot;#程序计数器&quot; class=&quot;headerlink&quot; title=&quot;程序计数器&quot;&gt;&lt;/a&gt;程序计数器&lt;/h3&gt;&lt;p&gt;(PC Register),记录当前线程执行程序的位置,改变计数器的值确定下一条执行的指令,线程私有.&lt;br&gt;程序计数器是唯一不会出现 &lt;code&gt;OOM&lt;/code&gt; 情况的内存区域&lt;/p&gt;</summary>
