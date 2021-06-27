@@ -42,16 +42,26 @@
     <link href="https://killy412.com/2021/05/17/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E7%B1%BB%E5%8A%A0%E8%BD%BD/"/>
     <id>https://killy412.com/2021/05/17/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-%E7%B1%BB%E5%8A%A0%E8%BD%BD/</id>
     <published>2021-05-17T12:44:31.000Z</published>
-    <updated>2021-05-17T13:56:35.511Z</updated>
+    <updated>2021-06-27T15:18:24.299Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;类的生命周期&quot;&gt;&lt;a href=&quot;#类的生命周期&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;类的生命周期&quot;&gt;&lt;a href=&quot;#类的生命周期&quot; class=&quot;headerlink&quot; title=&quot;类的生命周期&quot;&gt;&lt;/a&gt;类的生命周期&lt;/h2&gt;&lt;p&gt;主要分为&lt;strong&gt;加载-&amp;gt;链接-&amp;gt;初始化-&amp;gt;使用-&amp;gt;卸载&lt;/strong&gt;几个过程. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;加载&lt;/p&gt;
+&lt;p&gt;跟去类的全限定名找到对应的class字节码文件,读取class文件,把静态数据结构转化为运行时数据结构,创建一个class对象,作为数据访问的入口.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;链接&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;验证: 检查字节码文件是否符合jvm规范,是否会危害jvm的安全.&lt;/li&gt;
+&lt;li&gt;准备: 为static变量分配内存,同时赋初始值.&lt;/li&gt;
+&lt;li&gt;解析: 把常量池中的符号引用转为直接引用.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;初始化.&lt;/p&gt;
+&lt;p&gt;执行类构造器&lt;code&gt;clinit()&lt;/code&gt;函数,是由static变量赋值和static代码块组合而成.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;遇到new/getstatic/putstatic/invokestatic才会执行类的初始化过程.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
