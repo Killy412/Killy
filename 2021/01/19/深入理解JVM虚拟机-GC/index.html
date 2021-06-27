@@ -25,7 +25,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JVM虚拟机-GC">
 <meta property="og:url" content="https://killy412.com/2021/01/19/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM%E8%99%9A%E6%8B%9F%E6%9C%BA-GC/index.html">
-<meta property="og:site_name" content="你看这只猫">
+<meta property="og:site_name" content="boatman&#39;s blog">
 <meta property="og:description" content="概述 垃圾收集需要完成的三件事  哪些内存需要回收? 什么时候回收? 如何回收?">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Killy412/killy-note/master/img/CMS%E6%94%B6%E9%9B%86%E5%99%A8%E8%BF%90%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>深入理解JVM虚拟机-GC | 你看这只猫</title>
+  <title>深入理解JVM虚拟机-GC | boatman's blog</title>
   
 
 
@@ -82,7 +82,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="你看这只猫" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="boatman's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -103,10 +103,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">你看这只猫</h1>
+      <h1 class="site-title">boatman's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">又肥又傻</p>
+      <p class="site-subtitle" itemprop="description">这是一只三花</p>
   </div>
 
   <div class="site-nav-right">
@@ -179,7 +179,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你看这只猫">
+      <meta itemprop="name" content="boatman's blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -526,20 +526,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -711,8 +711,8 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'YnYwhQ0zYy5QChw894NepGMa-gzGzoHsz',
       appKey     : 'LqgIRbwgpGDiKHfUIywom1du',
-      placeholder: "What's left",
-      avatar     : 'mm',
+      placeholder: "Leave some insights",
+      avatar     : '',
       meta       : guest,
       pageSize   : '10' || 10,
       visitor    : true,

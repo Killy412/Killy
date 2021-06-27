@@ -25,7 +25,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发之AQS">
 <meta property="og:url" content="https://killy412.com/2021/05/02/%E5%B9%B6%E5%8F%91%E4%B9%8BAQS/index.html">
-<meta property="og:site_name" content="你看这只猫">
+<meta property="og:site_name" content="boatman&#39;s blog">
 <meta property="og:description" content="并发之同步器(AbstractQueueSynchronize)同步器是juc并发包中并发工具的基础,很多经常使用的同步工具类都是基于aqs实现的.例如ReentrantLock,CountDownLatch,Semphore等. 基本的实现方式是通过一个state变量控制资源是否已经被占用,以及一个CLH队列实现. 为什么要使用AQS,和synchronized相比有什么优势">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-02T09:53:47.000Z">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>并发之AQS | 你看这只猫</title>
+  <title>并发之AQS | boatman's blog</title>
   
 
 
@@ -79,7 +79,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="你看这只猫" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="boatman's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -100,10 +100,10 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">你看这只猫</h1>
+      <h1 class="site-title">boatman's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">又肥又傻</p>
+      <p class="site-subtitle" itemprop="description">这是一只三花</p>
   </div>
 
   <div class="site-nav-right">
@@ -176,7 +176,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你看这只猫">
+      <meta itemprop="name" content="boatman's blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -383,20 +383,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -568,8 +568,8 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'YnYwhQ0zYy5QChw894NepGMa-gzGzoHsz',
       appKey     : 'LqgIRbwgpGDiKHfUIywom1du',
-      placeholder: "What's left",
-      avatar     : 'mm',
+      placeholder: "Leave some insights",
+      avatar     : '',
       meta       : guest,
       pageSize   : '10' || 10,
       visitor    : true,

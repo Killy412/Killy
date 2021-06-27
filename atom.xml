@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>你看这只猫</title>
+  <title>boatman&#39;s blog</title>
   <icon>https://killy412.com/icon.png</icon>
-  <subtitle>又肥又傻</subtitle>
+  <subtitle>这是一只三花</subtitle>
   <link href="https://killy412.com/atom.xml" rel="self"/>
   
   <link href="https://killy412.com/"/>
-  <updated>2021-05-17T13:56:35.511Z</updated>
+  <updated>2021-06-27T15:09:48.317Z</updated>
   <id>https://killy412.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Netty-NIO基础</title>
+    <link href="https://killy412.com/2021/06/27/Netty-NIO%E5%9F%BA%E7%A1%80/"/>
+    <id>https://killy412.com/2021/06/27/Netty-NIO%E5%9F%BA%E7%A1%80/</id>
+    <published>2021-06-27T14:25:47.000Z</published>
+    <updated>2021-06-27T15:09:48.317Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;IO基础知识&quot;&gt;&lt;a href=&quot;#IO基础知识&quot; class=&quot;headerlink&quot; title=&quot;IO基础知识&quot;&gt;&lt;/a&gt;IO基础知识&lt;/h2&gt;&lt;p&gt;在1.4版本之前，Java IO类库是阻塞IO；从1.4版本开始，引进了新的异步IO库，被称为JavaNew IO类库，简称为JAVA NIO.New IO类库的目标，就是要让Java支持非阻塞IO，基于这个原因，更多的人喜欢称Java NIO为非阻塞IO（Non-Block IO），称“老的”阻塞式Java IO为OIO（Old IO）。总体上说，NIO弥补了原来面向流的OIO同步阻塞的不足，它为标准Java代码提供了高速的、面向缓冲区的IO。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Netty" scheme="https://killy412.com/categories/Netty/"/>
+    
+    
+    <category term="Netty" scheme="https://killy412.com/tags/Netty/"/>
+    
+    <category term="NIO" scheme="https://killy412.com/tags/NIO/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解JVM虚拟机-类加载</title>
