@@ -6,7 +6,7 @@
   <link href="https://killy412.com/atom.xml" rel="self"/>
   
   <link href="https://killy412.com/"/>
-  <updated>2021-06-27T15:09:48.317Z</updated>
+  <updated>2021-07-04T08:05:38.619Z</updated>
   <id>https://killy412.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全新服务器环境搭建(Docker+jre+mysql+nginx)</title>
+    <link href="https://killy412.com/2021/07/02/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://killy412.com/2021/07/02/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
+    <published>2021-07-02T09:53:47.000Z</published>
+    <updated>2021-07-04T08:05:38.619Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;全新服务器环境搭建-Docker-jre-mysql-nginx&quot;&gt;&lt;a href=&quot;#全新服务器环境搭建-Docker-jre-mysql-nginx&quot; class=&quot;headerlink&quot; title=&quot;全新服务器环境搭建(Docker+jre+mysql+nginx)&quot;&gt;&lt;/a&gt;全新服务器环境搭建(Docker+jre+mysql+nginx)&lt;/h2&gt;&lt;h3 id=&quot;一-Docker安装&quot;&gt;&lt;a href=&quot;#一-Docker安装&quot; class=&quot;headerlink&quot; title=&quot;一. Docker安装&quot;&gt;&lt;/a&gt;一. Docker安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装docker&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -sSL https://get.daocloud.io/docker | sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://killy412.com/categories/Linux/"/>
+    
+    
+    <category term="Docker" scheme="https://killy412.com/tags/Docker/"/>
+    
+    <category term="Linux" scheme="https://killy412.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021半年展望及总结</title>
+    <link href="https://killy412.com/2021/07/02/2021%E5%8D%8A%E5%B9%B4%E5%B1%95%E6%9C%9B%E5%8F%8A%E6%80%BB%E7%BB%93/"/>
+    <id>https://killy412.com/2021/07/02/2021%E5%8D%8A%E5%B9%B4%E5%B1%95%E6%9C%9B%E5%8F%8A%E6%80%BB%E7%BB%93/</id>
+    <published>2021-07-02T00:46:00.000Z</published>
+    <updated>2021-07-02T13:54:40.866Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;半年总结&quot;&gt;&lt;a href=&quot;#半年总结&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="年度总结" scheme="https://killy412.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="总结" scheme="https://killy412.com/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Netty-NIO基础</title>
